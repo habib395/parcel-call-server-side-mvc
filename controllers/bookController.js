@@ -5,7 +5,7 @@ const bookCollection = client.db('parcelTime').collection('books');
 exports.getBooksInfo = async(req, res) => {
     try {
         let cursor = bookCollection.find();
-        const result = cursor.toArray();
+        const result = await cursor.toArray();
         
         res.status(200).send({
             success: true,
