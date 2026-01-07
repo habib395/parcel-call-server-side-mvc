@@ -5,6 +5,7 @@ const { connectDB } = require('./config/db');
 const app = express();
 const port = process.env.PORT || 8400;
 const usersInfo = require('./routes/usersRoute');
+const reviewsInfo = require('./routes/reviewsRoute');
 
 app.use(cors({
     origin: 'http://localhost:5173',
@@ -23,7 +24,9 @@ const startServer = async() => {
             res.send('parcel Call is running!')
         })
 
-        app.use('/api/v1', usersInfo)
+        app.use('/api/v1', usersInfo);
+
+        app.use('/api/v1', reviewsInfo);
 
         app.listen(port, () => {
             console.log(`parcel call is running on port: ${port}`)
