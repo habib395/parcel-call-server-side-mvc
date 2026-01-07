@@ -6,6 +6,8 @@ const app = express();
 const port = process.env.PORT || 8400;
 const usersInfo = require('./routes/usersRoute');
 const reviewsInfo = require('./routes/reviewsRoute');
+const adminStatInfo = require('./routes/adminStatRoute');
+const bookInfo = require('./routes/booksRoute');
 
 app.use(cors({
     origin: 'http://localhost:5173',
@@ -27,6 +29,10 @@ const startServer = async() => {
         app.use('/api/v1', usersInfo);
 
         app.use('/api/v1', reviewsInfo);
+
+        app.use('/api/v1', adminStatInfo);
+
+        app.use('/api/v1', bookInfo);
 
         app.listen(port, () => {
             console.log(`parcel call is running on port: ${port}`)
