@@ -9,6 +9,8 @@ const reviewsInfo = require('./routes/reviewsRoute');
 const adminStatInfo = require('./routes/adminStatRoute');
 const bookInfo = require('./routes/booksRoute');
 const parcelInfo = require('./routes/parcelRoute');
+const topDeliveryManInfo = require('./routes/topDeliveryManRoute');
+
 
 app.use(cors({
     origin: 'http://localhost:5173',
@@ -36,6 +38,8 @@ const startServer = async() => {
         app.use('/api/v1', bookInfo);
 
         app.use('/api/v1', parcelInfo);
+
+        app.use('/api/v1', topDeliveryManInfo);
 
         app.listen(port, () => {
             console.log(`parcel call is running on port: ${port}`)
