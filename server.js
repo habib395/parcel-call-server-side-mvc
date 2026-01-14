@@ -14,6 +14,7 @@ const postReviewInfo = require('./routes/reviewPostRoute');
 const postBookInfo = require('./routes/bookPostRoute');
 const postParcelInfo = require('./routes/postParcelRoute');
 const bookEmailInfo = require('./routes/bookEmailRoute')
+const reviewsDeliverManInfo = require('./routes/getReviewRoute');
 
 app.use(cors({
     origin: 'http://localhost:5173',
@@ -51,6 +52,8 @@ const startServer = async() => {
         app.use('/api/v1', postParcelInfo);
 
         app.use('/api/v1', bookEmailInfo);
+        
+        app.use('/api/v1', reviewsDeliverManInfo);
 
         app.listen(port, () => {
             console.log(`parcel call is running on port: ${port}`)
