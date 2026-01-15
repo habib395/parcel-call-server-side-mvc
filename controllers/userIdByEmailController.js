@@ -1,6 +1,5 @@
 const { client } = require("../config/db");
 
-
 const userCollection = client.db('parcelTime').collection('parcels');
 
 exports.getUserIdByEmail = async(req, res) => {

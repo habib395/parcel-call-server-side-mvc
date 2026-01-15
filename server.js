@@ -18,6 +18,8 @@ const reviewsDeliverManInfo = require('./routes/getReviewRoute');
 const userIdInfo = require('./routes/userIdByEmailRoute');
 const deliveryByEmailInfo = require('./routes/deliveryByEmailRoute');
 const userByRoleInfo = require('./routes/userDeliveryByRoleRoute');
+const userRoleByEmailInfo = require('./routes/userRoleByEmailRoute');
+const userIdEmailInfo = require('./routes/userIdEmailRoute');
 
 app.use(cors({
     origin: 'http://localhost:5173',
@@ -63,6 +65,10 @@ const startServer = async() => {
         app.use('/api/v1', deliveryByEmailInfo);
 
         app.use('/api/v1', userByRoleInfo);
+
+        app.use('/api/v1', userRoleByEmailInfo);
+
+        app.use('/api/v1', userIdEmailInfo);
 
         app.listen(port, () => {
             console.log(`parcel call is running on port: ${port}`)

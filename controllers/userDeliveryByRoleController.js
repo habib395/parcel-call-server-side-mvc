@@ -1,10 +1,8 @@
 const { client } = require("../config/db");
 
-
 const usersCollection = client.db('parcelTime').collection('parcels');
 const booksCollection = client.db('parcelTime').collection('books');
 const reviewsCollection = client.db('parcelTime').collection('reviews');
-
 
 exports.getUserByRole = async(req, res) => {
     try {
