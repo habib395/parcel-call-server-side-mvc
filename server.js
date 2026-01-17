@@ -20,6 +20,9 @@ const deliveryByEmailInfo = require('./routes/deliveryByEmailRoute');
 const userByRoleInfo = require('./routes/userDeliveryByRoleRoute');
 const userRoleByEmailInfo = require('./routes/userRoleByEmailRoute');
 const userIdEmailInfo = require('./routes/userIdEmailRoute');
+const userRoleEmailInfo = require('./routes/patchUserRoleRoute');
+const userBookStatusInfo = require('./routes/patchBookStatusByIdRoute');
+const parcelStatusInfo = require('./routes/parcelStatusByIdRoute');
 
 app.use(cors({
     origin: 'http://localhost:5173',
@@ -69,6 +72,12 @@ const startServer = async() => {
         app.use('/api/v1', userRoleByEmailInfo);
 
         app.use('/api/v1', userIdEmailInfo);
+
+        app.use('/api/v1', userRoleEmailInfo);
+
+        app.use('/api/v1', userBookStatusInfo);
+
+        app.use('/api/v1', parcelStatusInfo);
 
         app.listen(port, () => {
             console.log(`parcel call is running on port: ${port}`)
