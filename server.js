@@ -25,6 +25,7 @@ const userBookStatusInfo = require('./routes/patchBookStatusByIdRoute');
 const parcelStatusInfo = require('./routes/parcelStatusByIdRoute');
 const updateBookInfo = require('./routes/putBookIdRoute');
 const deleteBookInfo = require('./routes/deleteBookRoute');
+const authRouteInfo = require('./routes/authRoute');
 
 app.use(cors({
     origin: 'http://localhost:5173',
@@ -84,6 +85,8 @@ const startServer = async() => {
         app.use('/api/v1', updateBookInfo);
 
         app.use('/api/v1', deleteBookInfo);
+
+        app.use('/api/v1', authRouteInfo);
 
         app.listen(port, () => {
             console.log(`parcel call is running on port: ${port}`)
